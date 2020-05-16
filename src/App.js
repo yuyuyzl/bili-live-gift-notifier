@@ -37,6 +37,7 @@ function App() {
         if(giftQueue.length>0)setGiftQueue(giftQueue=>giftQueue.slice(1));
       },giftQueue.length?10000/giftQueue.length:10000));
     }
+    // eslint-disable-next-line
   },[giftQueue]);
 
   useEffect(()=>{
@@ -62,11 +63,11 @@ function App() {
     <div className="App">
       <header className="App-header">
         <div className='last-img' style={{transition:`all ${transDuration}s`,opacity:showBubble?1:0}}>
-          <img src={bl}/>
+          <img src={bl} alt={""}/>
           <div className="last-msg text" style={{backgroundImage:"url("+bm+")"}}>
             {lastmsg}
           </div>
-          <img src={br}/>
+          <img src={br} alt={""}/>
         </div>
         <img src={logo} className="App-logo" alt="logo" />
 
