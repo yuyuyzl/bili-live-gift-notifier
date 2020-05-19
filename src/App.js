@@ -22,13 +22,13 @@ function App() {
   };
 
   useEffect(()=>{
-    console.log(giftQueue);
+    //console.log(giftQueue);
     if(!queueTimer&&!giftQueue.length){
       setTransDuration(1);
       setShowBubble(false);
     }
     if(!queueTimer&&giftQueue.length){
-      console.log(giftQueue[0]);
+      //console.log(giftQueue[0]);
       setLastmsg(giftQueue[0]);
       setTransDuration(0.3);
       setShowBubble(true);
@@ -50,13 +50,13 @@ function App() {
       //live.on('SEND_GIFT', ({data})=>(data.coin_type==="gold")&&log(data.uname,data.action,data.giftName,data.num));//(data.coin_type==="gold")&&
       live.on('SEND_GIFT', ({data})=> (data.coin_type==="gold"||new URL(window.location.href).searchParams.get("silver"))&&log(`感谢${data.uname}前辈的${data.giftName}`));
       //live.on('GUARD_BUY', ({data}) =>log(data.username,data.gift_name));
-      live.on('GUARD_BUY', ({data}) =>log(`感谢${data.username}前辈的${data.giftName}`));
+      live.on('GUARD_BUY', ({data}) =>log(`感谢${data.username}前辈的${data.gift_name}`));
       //live.on('SUPER_CHAT_MESSAGE', ({data}) =>log(data.user_info.uname,data.message,data.price));
       live.on('SUPER_CHAT_MESSAGE', ({data}) =>log(`感谢${data.user_info.uname}前辈的SC`));
 
       // live.on('error', console.error);
-      // live.on('msg', console.log);
-    })
+      //live.on('msg', console.log);
+    });
     return ()=>live.close();
   },[]);
   return (
